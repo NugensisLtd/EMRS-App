@@ -1,0 +1,166 @@
+
+<ion-view>
+   <ion-content class="padding" ng-model='frm'>
+    	<h2>1. General Details</h2>
+
+    	<div class="wrap">
+    		<!-- Radio Priary/Secondary -->
+				<div class="list">
+				 	<label class="item item-radio">
+				    	<input id="first" name="content" ng-model="content" value="first" type="radio" name="group">
+				    	<div class="item-content">
+				      		Primary
+				    	</div>
+				    	<i class="radio-icon ion-checkmark"></i>
+				  </label>
+
+				  <label class="item item-radio">
+				    <input id="other" name="content" ng-model="content" value="other" type="radio" name="group">
+				    <div class="item-content">
+				      Secondary
+				    </div>
+				    <i class="radio-icon ion-checkmark"></i>
+				  </label>
+				</div>	
+			<!-- Data entry form -->
+			<div class="wrapper">
+				<!-- Primary -->
+			  <div ng-show="content == 'first'">
+		    	<label class="item item-input">
+					  <span class="input-label">SAS ACC Incident Number</span>
+					  <input type="number" ng-model='frm.SasAccIncidentNumber' value='{{ frm.SasAccIncidentNumber }}'>
+					</label>
+			  	<label class="item item-input">
+				  	<span class="input-label">Patient Location</span>
+				  	<input type="text" ng-model='frm.PatientLocation' value='{{ frm.PatientLocation }}'>
+					</label>
+				</div>
+				<!-- Secondary -->
+				<div ng-show="content == 'other'">
+		  		<label class="item item-input item-select">
+				    <div class="input-label">
+				      Referring Clinician
+				    </div>
+				    <select>
+				      <option selected>Please Select</option>
+				      <option>datasource</option>
+				    </select>
+		  		</label>
+			  	<label class="item item-input">
+				  	<span class="input-label">Referring Clinician Telephone number</span>
+				  	<input type="number">
+					</label>
+					<label class="item item-input item-select">
+				    <div class="input-label">
+				      Location
+				    </div>
+				    <select>
+				      <option selected>Please Select</option>
+				      <option>datasource</option>
+				    </select>
+			  		</label>
+			  </div>
+			  <!-- Rest of the Form -->
+			  <label class="item item-input">
+				  <span class="input-label">Patient Name</span>
+				  <input type="text" ng-model='frm.PatientName' value='{{ frm.PatientName }}'>
+				</label>
+
+				<label class="item item-input">
+				  <span class="input-label">CHI Number</span>
+				  <input type="number" ng-model='frm.ChiNumber' value='{{ frm.ChiNumber }}'>
+				</label>
+
+				<label class="item item-input">
+				  <span class="input-label">Patient Date Of Birth</span>
+				  <input type="date" ng-model='frm.PatientDOB' value='{{ frm.PatientDOB }}'>
+				</label>
+
+				<label class="item item-input">
+				  <span class="input-label">Patient Age</span>
+				  <input type="number" ng-model='frm.PatientAge' value='{{ frm.PatientAge }}'>
+				</label>
+
+				<label class="item item-input">
+				  <span class="input-label">Patient Weight</span>
+				  <input type="number" ng-model='frm.PatientWeight' value='{{ frm.PatientWeight }}'>
+				</label>
+
+			  <label class="item item-input item-select">
+			    <div class="input-label">
+			      Gender
+			    </div>
+			    <select ng-model='frm.Gender' value='{{ frm.Gender }}'>
+			      <option>Please Select</option>
+			      <option>Male</option>
+			      <option>Female</option>
+			    </select>
+			  </label>
+
+			  <label class="item item-input">
+				  <span class="input-label">Mission Number</span>
+				  <input type="number" ng-model='frm.MissionNumber' value='{{ frm.MissionNumber }}'>
+				</label>
+
+				<label class="item item-input">
+				  <span class="input-label">Event Date</span>
+				  <input type="date" ng-model='frm.EventDate' value='{{ frm.EventDate }}'>
+				</label>
+
+				<label class="item item-input item-select">
+			    <div class="input-label">
+			      Activation Team
+			    </div>
+			    <select ng-model="frm.ActivationTeam" ng-options="team.name for team in ddActivationTeams">
+			    </select>
+			  </label>
+
+			  <label class="item item-input item-select">
+			    <div class="input-label">
+			      Referral Source
+			    </div>
+			    <select ng-model='frm.ReferralSource' value='{{ frm.ReferralSource }}'>
+			      <option selected>Please Select</option>
+			      <option>datasource</option>
+			    </select>
+			  </label>
+
+			  <label class="item item-input">
+				  <span class="input-label">Referral Source Other Details</span>
+				  <input type="text" ng-model='frm.ReferralSourceOtherDetails' value='{{ frm.ReferralSourceOtherDetails }}'>
+				</label>
+
+				<label class="item item-input item-select">
+			    <div class="input-label">
+			      Consultant
+			    </div>
+			    <select ng-model='frm.Consultant' value='{{ frm.Consultant }}'>
+			      <option selected>Please Select</option>
+			      <option>datasource</option>
+			    </select>
+			  </label>
+
+			  <label class="item item-input item-select">
+			    <div class="input-label">
+			      2nd Team Member
+			    </div>
+			    <select ng-model='frm.SecTeamMember' value='{{ frm.SecTeamMember }}'>
+			      <option selected>Please Select</option>
+			      <option>datasource</option>
+			    </select>
+			  </label>
+
+			  <label class="item item-input item-select">
+			    <div class="input-label">
+			      Paramedic
+			    </div>
+			    <select ng-model='frm.Paramedic' value='{{ frm.Paramedic }}'>
+			      <option selected>Please Select</option>
+			      <option>datasource</option>
+			    </select>
+			  </label>
+		</div>
+    </ion-content>
+</ion-view>
+
+

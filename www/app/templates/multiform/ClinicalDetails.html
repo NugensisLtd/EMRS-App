@@ -1,0 +1,186 @@
+
+<ion-view>
+   <ion-content class="padding">
+
+        <h1>Clinical Details</h1>
+        	<div class="wrap">
+            <h2>Past Medical History</h2>
+        		<ul class="list" >
+              <li class="item item-checkbox" ng-repeat="pmh in frmClinical.pastMedicalHistory">
+                 <label class="checkbox">
+                   <input type="checkbox" ng-model="pmh.isChecked">
+                 </label>
+                 <span>{{pmh.name}}</span>
+              </li>
+            </ul>
+
+            <h2>Medication</h2>
+            <ul class="list" >
+              <li class="item item-checkbox" ng-repeat="med in frmClinical.medication">
+                 <label class="checkbox">
+                   <input type="checkbox" ng-model="med.isChecked">
+                 </label>
+                 <span>{{med.name}}</span>
+              </li>
+            </ul>
+
+            <h2>Primary Medical Problem (Select 1 option)</h2>
+            <ul class="list" >
+              <li class="item item-checkbox" ng-repeat="pmp in frmClinical.primaryMedicalProblem">
+                 <label class="checkbox">
+                   <input type="checkbox" ng-model="pmp.isChecked">
+                 </label>
+                 <span>{{pmp.name}}</span>
+              </li>
+            </ul>
+
+            <h2>Other Medical Problem (Select 2 options max)</h2>
+            <ul class="list" >
+              <li class="item item-checkbox" ng-repeat="omp in frmClinical.otherMedicalProblem">
+                 <label class="checkbox">
+                   <input type="checkbox" ng-model="omp.isChecked">
+                 </label>
+                 <span>{{omp.name}}</span>
+              </li>
+            </ul>
+
+            <h2>Initial Clinical Details</h2>
+            <label class="item item-input item-stacked-label">
+              <textarea ng-model="frmClinical.initialClinicalDetails"></textarea>
+            </label>
+            <button class="button button-block" ng-click="addInitialClinicalDetails()">
+              Add Clinical Detail Note
+            </button>
+            <br><br>
+            <div ng-repeat="cd in frmClinical.arClinicalDetails">
+              <button type="button" class="button button-assertive" ng-click="removeClinicalDetail(cd.id)">
+                Remove
+              </button>
+              
+              <h2>Initial Clinical Details</h2>
+              <label class="item item-input item-stacked-label">
+                <textarea name="cd.id" ng-model="cd.name"></textarea>
+              </label> 
+              <br>       
+            </div>
+
+            <h2>Initial Advice Given</h2>
+            <label class="item item-input item-stacked-label">
+              <textarea ng-model="frmClinical.initialAdviceGiven"></textarea>
+            </label>
+            <button class="button button-block" ng-click="addAdviceGiven()">
+              Add New Advice Note
+            </button>
+            <br><br>
+            <div ng-repeat="cd in frmClinical.arAdviceGiven">
+              <button type="button" class="button button-assertive" ng-click="removeAdviceGiven(cd.id)">
+                Remove
+              </button>
+              
+            <h2>Further Advice</h2>
+            <label class="item item-input item-stacked-label">
+              <textarea name="cd.id" ng-model="cd.name"></textarea>
+            </label> 
+            <br>       
+            </div>
+
+            <h2>Initial Clinical Findings</h2>
+            <label class="item item-input item-stacked-label">
+              <textarea ng-model="frmClinical.initialClinicalFindings"></textarea>
+            </label>
+            <button class="button button-block" ng-click="addClinicalFindings()">
+              Add Clinical Findings Note
+            </button>
+            <br><br>
+            <div ng-repeat="cd in frmClinical.arClinicalFindings">
+              <button type="button" class="button button-assertive" ng-click="removeClinicalFindings(cd.id)">
+                Remove
+              </button>
+              
+            <h2>Further Clinical Findings</h2>
+            <label class="item item-input item-stacked-label">
+              <textarea name="cd.id" ng-model="cd.name"></textarea>
+            </label> 
+            <br>       
+            </div>
+
+            <h2>Co-Morbidty</h2>
+            <button class="button" ng-click="on()" ng-hide="showDiv()"><strong>Show ASA-PS Definitions</strong></button>  
+            <button class="button" ng-click="off()" ng-show="showDiv()"><strong>Hide ASA-PS Definitions</strong></button> 
+            
+            <DIV class="list padding" ng-show="showDiv()">
+              <H3>ASA-PS Definition</H3>
+              <UL>
+                <LI><H4>1 = A normal healthy patient</H4></LI>
+                <LI><H4>2 = A patient with mild systemic disease</H4></LI>
+                <LI><H4>3 = A patient with severe systemic disease</H4></LI>
+                <LI><H4>4 = A patient with severe systemic disease that is a constant threat to life</H4></LI>
+                <LI><H4>5 = A moribund patient who is not expected to survive without operation</H4></LI>
+                <LI><H4>6 = A declared brain-dead patient whose organs are being removed for donor problems</H4></LI>
+              </UL>
+            </DIV>
+            
+            <div class="list">
+              <label class="item item-radio">
+                <input ng-model="frmClinical.comorbidty" value="Unknown" type="radio" name="radComorbidty">
+                <div class="item-content">
+                  Unknown
+                </div>
+                <i class="radio-icon ion-checkmark"></i>
+              </label>
+              <label class="item item-radio">
+                <input ng-model="frmClinical.comorbidty" value="No" type="radio" name="radComorbidty">
+                <div class="item-content">
+                  No (ASA-PS = 1)
+                </div>
+                <i class="radio-icon ion-checkmark"></i>
+              </label>
+              <label class="item item-radio">
+                <input ng-model="frmClinical.comorbidty" value="Yes" type="radio" name="radComorbidty">
+                <div class="item-content">
+                  Yes (ASA-PS = 2-6)
+                </div>
+                <i class="radio-icon ion-checkmark"></i>
+              </label>
+            </div>
+
+            <DIV class="list">
+            <h2>Initial Working Diagnosis</h2>
+            <label class="item item-input item-stacked-label">
+              <select ng-model="frmClinical.initialWorkingDiagnosis" ng-options="wd.name for wd in ddWorkingDiagnosis">
+              </select>
+            </label>
+
+            <button class="button button-block" ng-click="addFurtherWorkingDiagnosis()">
+              Add a Further Working Diagnosis
+            </button>
+            </DIV>
+            
+            <h2>Dominating Type of Injury</h2>
+            <div class="list">
+              <label class="item item-radio">
+                <input ng-model="frmClinical.typeOfInjury" value="Blunt" type="radio" name="radTypeOfInjury">
+                <div class="item-content">
+                  Blunt
+                </div>
+                <i class="radio-icon ion-checkmark"></i>
+              </label>
+              <label class="item item-radio">
+                <input ng-model="frmClinical.typeOfInjury" value="Penetrating" type="radio" name="radTypeOfInjury">
+                <div class="item-content">
+                  Penetrating
+                </div>
+                <i class="radio-icon ion-checkmark"></i>
+              </label>
+              <label class="item item-radio">
+                <input ng-model="frmClinical.typeOfInjury" value="Unknown" type="radio" name="radTypeOfInjury">
+                <div class="item-content">
+                  Unknown
+                </div>
+                <i class="radio-icon ion-checkmark"></i>
+              </label>
+            </div>
+
+        	</div>
+    </ion-content>
+</ion-view>

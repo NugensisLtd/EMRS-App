@@ -1,0 +1,24 @@
+<ion-view>        
+    <ion-content>
+        
+        
+        <img src="img/emrs_logo.png" class="loginlogo">
+        <h2 style="text-align:center;">EMRS Application</h2>
+
+        <div class="list">
+          <label class="item item-input">
+            <span class="input-label">Username</span>
+            <input type="text" ng-model="user.username">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Password</span>
+            <input type="password" ng-model="user.password">
+          </label>
+        </div>
+        <div class="padding">
+          <button class="button button-block button-royal" ng-click="signIn(user)">
+            Sign Me In
+          </button>            
+        </div>                
+  </ion-content>
+</ion-view>

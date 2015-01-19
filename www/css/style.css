@@ -1,0 +1,26 @@
+/* Empty. Add your own CSS if you like */
+
+.loginlogo{
+	display: block;
+  margin-left: auto;
+  margin-right: auto
+}
+
+.centerdiv{
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: solid;
+  border-width: 0px;
+}
+
+.button.button-royal {
+    border-color: #9B00CB;
+    background-color: #9B00CB;
+    color: #FFF;
+}
+
+a{
+	text-decoration: none;
+	color: #000;
+}
