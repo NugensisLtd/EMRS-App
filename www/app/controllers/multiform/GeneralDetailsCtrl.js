@@ -3,7 +3,9 @@
         
   angular.module('GeneralDetailsMod', ['ionic','ddListsMod'])  
 
-  .controller('GeneralDetailsCtrl', function($scope,ddLists,frmData,FormService) {
+  .controller('GeneralDetailsCtrl', function($scope,ddLists,frmData,FormService,formsManager) {
+
+
     // Default to Primary View
     $scope.content='first';
 
@@ -87,6 +89,11 @@
     */
 
   	$scope.frmCreateNewForm = function() {  
+
+      var newform = formsManager.newForm();
+      formsManager.currentForm.sasAccIncidentNumber = $scope.frm.SasAccIncidentNumber;  
+
+       
 
       frmInstance.sasAccIncidentNumber = $scope.frm.SasAccIncidentNumber;	
       frmInstance.patientLocation = $scope.frm.PatientLocation;

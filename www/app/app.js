@@ -8,7 +8,7 @@ var db = null;
 var gIpAddr = "http://192.168.1.64:8080";
 //var zumero = cordova.require("cordova/plugin/zumero");
 
-angular.module('emrs', ['ionic','loginMod','GeneralDetailsMod','ClinicalDetailsMod','frmDataMod','signOffMod','testfactoryMod'])
+angular.module('emrs', ['ionic','loginMod','GeneralDetailsMod','ClinicalDetailsMod','frmDataMod','signOffMod','testfactoryMod','formsManagerServiceMod','formModelMod'])
 
 
 .run(function($ionicPlatform) {

@@ -3,7 +3,9 @@
         
   angular.module('ClinicalDetailsMod', ['ionic','ddListsMod'])  
 
-  .controller('ClinicalDetailsCtrl', function($state,$scope,ddLists,frmData,FormService) {
+  .controller('ClinicalDetailsCtrl', function($state,$scope,ddLists,frmData,FormService,formsManager) {
+
+    console.log('formsManager.currentForm.sasAccIncidentNumber: '+formsManager.currentForm.sasAccIncidentNumber);
 
     var frmInstance='';
     if(FormService.instance == null)
